@@ -50,3 +50,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- [[Dioxus Commands]]
+-- For formmating the Dixous file
+-- Does it silent in the background
+vim.keymap.set('', '<leader>dx', function()
+  vim.fn.jobstart('!dx fmt', {
+    stdout_buffered = true,
+    stderr_buffered = true,
+  })
+end, { desc = 'Dixous file formmating', silent = true })
